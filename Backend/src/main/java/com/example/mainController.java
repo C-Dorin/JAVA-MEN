@@ -31,45 +31,49 @@ public class MainController implements Initializable {
 
     public void loadStudentsPane() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("studentsPane.fxml"));
-            AnchorPane top10Pane = loader.load();
-            sceneCarrier.getChildren().setAll(top10Pane);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("studentsScene.fxml"));
+            AnchorPane studentsParentPane = loader.load();
+            studentsParentPane.prefWidthProperty().bind(mainPane.widthProperty().multiply(0.77));
+            studentsParentPane.prefHeightProperty().bind(mainPane.heightProperty());
+            sceneCarrier.getChildren().setAll(studentsParentPane);
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Top 10 pane threw an unexpected error");
+            System.out.println("Students pane threw an unexpected error");
         }
     }
 
     public void loadTeachersPane() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("teachersPane.fxml"));
-            AnchorPane top10Pane = loader.load();
-            sceneCarrier.getChildren().setAll(top10Pane);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("teachersScene.fxml"));
+            AnchorPane teachersParentPane = loader.load();
+            teachersParentPane.prefWidthProperty().bind(mainPane.widthProperty().multiply(0.77));
+            teachersParentPane.prefHeightProperty().bind(mainPane.heightProperty());
+            sceneCarrier.getChildren().setAll(teachersParentPane);
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Top 10 pane threw an unexpected error");
+            System.out.println("Teachers pane threw an unexpected error");
         }
     }
 
     public void loadGroupsPane() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("groupsPane.fxml"));
-            AnchorPane top10Pane = loader.load();
-            sceneCarrier.getChildren().setAll(top10Pane);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("groupsScene.fxml"));
+            AnchorPane groupsParentPane = loader.load();
+            groupsParentPane.prefWidthProperty().bind(mainPane.widthProperty().multiply(0.77));
+            groupsParentPane.prefHeightProperty().bind(mainPane.heightProperty());
+            sceneCarrier.getChildren().setAll(groupsParentPane);
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Top 10 pane threw an unexpected error");
+            System.out.println("Groups pane threw an unexpected error");
         }
     }
 
     public void loadTop10Pane() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("top10Pane.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("top10Scene.fxml"));
             AnchorPane top10ParentPane = loader.load();
-            Top10Controller top10Controller = loader.getController();
-            top10ParentPane.prefWidthProperty().bind(sceneCarrier.widthProperty());
-            top10ParentPane.prefHeightProperty().bind(sceneCarrier.heightProperty());
-            top10Controller.setFlexibleWidths();
+            top10ParentPane.prefWidthProperty().bind(mainPane.widthProperty().multiply(0.77));
+            top10ParentPane.prefHeightProperty().bind(mainPane.heightProperty());
             sceneCarrier.getChildren().setAll(top10ParentPane);
         } catch (IOException e) {
             e.printStackTrace();
@@ -79,12 +83,14 @@ public class MainController implements Initializable {
 
     public void loadCreatorsPane() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("creatorsPane.fxml"));
-            AnchorPane top10Pane = loader.load();
-            sceneCarrier.getChildren().setAll(top10Pane);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("creatorsScene.fxml"));
+            AnchorPane creatorsParentPane = loader.load();
+            creatorsParentPane.prefWidthProperty().bind(mainPane.widthProperty().multiply(0.77));
+            creatorsParentPane.prefHeightProperty().bind(mainPane.heightProperty());
+            sceneCarrier.getChildren().setAll(creatorsParentPane);
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Top 10 pane threw an unexpected error");
+            System.out.println("Creators pane threw an unexpected error");
         }
     }
 
@@ -98,7 +104,7 @@ public class MainController implements Initializable {
         top10Button.prefWidthProperty().bind(sideMenu.prefWidthProperty().subtract(10));
         creatorsButton.prefWidthProperty().bind(sideMenu.prefWidthProperty().subtract(10));
         sideMenu.minWidthProperty().bind(mainPane.widthProperty().multiply(0.01).add(108));
-        
+
         // Scene carrier flexibility
         sceneCarrier.prefWidthProperty().bind(mainPane.widthProperty().multiply(0.77));
         sceneCarrier.prefHeightProperty().bind(mainPane.heightProperty());

@@ -6,8 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 
 public class StudentsController implements Initializable {
     @FXML
@@ -22,6 +23,12 @@ public class StudentsController implements Initializable {
     VBox buttonsBox;
     @FXML
     Label nameLabel;
+    @FXML
+    TextArea viewArea;
+
+    public void displayStudents(){
+        viewArea.setText("Student#1: ");
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
